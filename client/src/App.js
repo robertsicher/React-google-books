@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import Navigation from './components/nav';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import Books from './components/books';
+
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
+
+    <Router>
     <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+      <Navigation />
+      <Books />
+      <Switch>
+      {/* <Route path="/" exact component={Home}/>
+      <Route path="/portfolio" component={Portfolio}/>
+      <Route path="/contact" component={Contact}/> */}
+      <Redirect from='*' to='/' />
+      </Switch>
     </div>
+  </Router>
   );
 }
 
