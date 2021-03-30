@@ -4,7 +4,7 @@ import { Card , Button ,  } from 'react-bootstrap';
 
 const BookCard = (props) => {
     return(
-        <Card className="col-md-4 mx-1">
+        <Card className="col-lg-4 m-1">
         <Card.Img variant="top" src={props.image} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
@@ -12,9 +12,11 @@ const BookCard = (props) => {
           {props.author}
           </Card.Text>
           <Card.Text>
-          {props.description}
+          {props.description.substr(0, 155)}..
           </Card.Text>
-          <Button variant="primary" onClick={()=> window.open(props.hyperLink, "_blank")}  >Go somewhere</Button>
+          <Button variant="primary" onClick={()=> window.open(props.hyperLink, "_blank")}>View in the store</Button>
+          <Button className="m-1" variant="primary">Save</Button>
+
         </Card.Body>
       </Card>
     )
