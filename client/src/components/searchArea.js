@@ -11,7 +11,7 @@ const SearchArea = (props) => {
                 Book Search
                 </Form.Label>
                 <Col sm="8">
-                <Form.Control onChange={props.handleSearch} type="text" placeholder="Type your book name here" />
+                <Form.Control required onChange={props.handleSearch} type="text" placeholder="Type your book name here" />
                 </Col>
                 <Col sm="2">
                 <Button type='submit' variant="secondary" block>

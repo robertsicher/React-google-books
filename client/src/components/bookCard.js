@@ -1,25 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Card , Button ,  } from 'react-bootstrap';
 
 
-const BookCard = (props) => {
+class BookCard extends Component {
+
+  onClickSave = () => {
+    this.props.saveBook(this.props)
+  }
+
+  render(){
     return(
         <Card className="col-lg-4 m-1">
-        <Card.Img variant="top" src={props.image} />
+        <Card.Img variant="top" src={this.props.image} />
         <Card.Body>
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>
-          {props.author}
+          {this.props.author}
           </Card.Text>
           <Card.Text>
-          {props.description.substr(0, 155)}..
           </Card.Text>
-          <Button variant="primary" onClick={()=> window.open(props.hyperLink, "_blank")}>View in the store</Button>
-          <Button className="m-1" variant="primary">Save</Button>
-
+          <Button variant="primary" onClick={()=> window.open(this.props.hyperLink, "_blank")}>View in the store</Button>
+          <Button onClick={this.onClickSave} className="m-1" variant="primary">Save</Button>
         </Card.Body>
       </Card>
     )
+  }
 }
 
 export default BookCard;

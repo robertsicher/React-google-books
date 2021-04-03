@@ -3,6 +3,7 @@ import request from 'superagent'
 import BookList from './bookList'
 import { Container  } from 'react-bootstrap';
 import SearchArea from './searchArea';
+import API from "./utils/api";
 
 class Books extends Component {
 
@@ -29,12 +30,26 @@ class Books extends Component {
         this.setState({searchField: e.target.value})
     }
 
+    saveBook = currentBook => {
+        console.log("This is the current book", currentBook);
+        API.saveBook({
+            id: currentBook.id,
+            title: currentBook.title,
+            authors: currentBook.authors,
+            description: currentBook.description,
+            image: currentBook.image,
+            link: currentBook.link
+        })
+        .then(res => console.log("Successful POST", res))
+        .catch(err => console.log("Error", err));
+    }
+
     render() {
         return(
         <div>
             <Container>
             <SearchArea searchBook={this.searchBook} handleSearch={this.handleSearch}/>
-            <BookList books={this.state.books}/>
+            <BookList books={this.state.books} saveBook={this.saveBook}/>
             </Container>
         </div>  
         );

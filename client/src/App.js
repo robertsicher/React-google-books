@@ -5,6 +5,7 @@ import Books from './components/books';
 
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Saved from "./components/saved";
 
 function App() {
   return (
@@ -12,11 +13,9 @@ function App() {
     <Router>
     <div className="App">
       <Navigation />
-      <Books />
       <Switch>
-      {/* <Route path="/" exact component={Home}/>
-      <Route path="/portfolio" component={Portfolio}/>
-      <Route path="/contact" component={Contact}/> */}
+      <Route path="/" exact component={Books}/>
+      <Route path="/saved" component={Saved}/>
       <Redirect from='*' to='/' />
       </Switch>
     </div>
