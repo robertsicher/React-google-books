@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Navigation from './components/nav';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Books from './components/books';

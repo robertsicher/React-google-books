@@ -35,10 +35,10 @@ class Books extends Component {
         API.saveBook({
             id: currentBook.id,
             title: currentBook.title,
-            authors: currentBook.authors,
+            authors: currentBook.author,
             description: currentBook.description,
             image: currentBook.image,
-            link: currentBook.link
+            link: currentBook.hyperLink
         })
         .then(res => console.log("Successful POST", res))
         .catch(err => console.log("Error", err));

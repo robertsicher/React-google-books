@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Card , Button ,  } from 'react-bootstrap';
 
 
-class SavedBookCard extends Component {
+class BookCard extends Component {
 
   onClickSave = () => {
     this.props.saveBook(this.props)
@@ -27,4 +27,4 @@ class SavedBookCard extends Component {
   }
 }
 
-export default SavedBookCard;
+export default BookCard;

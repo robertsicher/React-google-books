@@ -3,6 +3,7 @@ import BookCard from './bookCard'
 
 
 const BookList = (props) => {
+    console.log(props)
     
     return(
     <div className="row justify-content-center">
@@ -15,7 +16,7 @@ const BookList = (props) => {
                 author={book.volumeInfo.authors}
                 description={book.volumeInfo.description}
                 hyperLink={book.volumeInfo.infoLink}
-                saveBook={book.saveBook}
+                saveBook={props.saveBook}
                 />
             })
         }
