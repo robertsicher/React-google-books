@@ -25,6 +25,7 @@ export default class Saved extends Component {
   }
 
   deleteBook(id) {
+    console.log("delete book function fired. ID" + id);
     axios.delete("/api/books/" + id).then((res) => this.getSavedBooks());
     this.setState({
       savedBooks: this.state.savedBooks.filter((el) => el._id !== id),
