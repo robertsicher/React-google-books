@@ -2,29 +2,29 @@ import React, {Component} from 'react';
 import { Card , Button ,  } from 'react-bootstrap';
 
 
-class BookCard extends Component {
+class SavedBookCard extends Component {
 
-  onClickSave = () => {
-    this.props.saveBook(this.props)
+  onClickDelete = () => {
+    this.props.deleteBook()
   }
 
   render(){
     return(
         <Card className="col-lg-4 m-1">
-        <Card.Img variant="top" src={this.props.image} />
+        <Card.Img variant="top" src={this.props.book.image} />
         <Card.Body>
-          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Title>{this.props.book.title}</Card.Title>
           <Card.Text>
-          {this.props.author}
+          {this.props.book.authors}
           </Card.Text>
           <Card.Text>
           </Card.Text>
-          <Button variant="primary" onClick={()=> window.open(this.props.hyperLink, "_blank")}>View in the store</Button>
-          <Button onClick={this.onClickSave} className="m-1" variant="primary">Save</Button>
+          <Button variant="primary" onClick={()=> window.open(this.props.book.link, "_blank")}>View in the store</Button>
+          <Button onClick={this.onClickDelete} className="m-1" variant="primary">Delete</Button>
         </Card.Body>
       </Card>
     )
   }
 }
 
-export default BookCard;
+export default SavedBookCard;

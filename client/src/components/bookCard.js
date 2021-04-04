@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Card , Button ,  } from 'react-bootstrap';
 
 
-class SavedBookCard extends Component {
+class BookCard extends Component {
 
   onClickSave = () => {
     this.props.saveBook(this.props)
@@ -15,11 +15,11 @@ class SavedBookCard extends Component {
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>
-          {this.props.author}
+          {this.props.authors}
           </Card.Text>
           <Card.Text>
           </Card.Text>
-          <Button variant="primary" onClick={()=> window.open(this.props.hyperLink, "_blank")}>View in the store</Button>
+          <Button variant="primary" onClick={()=> window.open(this.props.link, "_blank")}>View in the store</Button>
           <Button onClick={this.onClickSave} className="m-1" variant="primary">Save</Button>
         </Card.Body>
       </Card>
@@ -27,4 +27,4 @@ class SavedBookCard extends Component {
   }
 }
 
-export default SavedBookCard;
+export default BookCard;

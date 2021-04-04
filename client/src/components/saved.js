@@ -8,7 +8,7 @@ export default class Saved extends Component {
   constructor(props) {
     super(props);
 
-    // this.deleteBook = this.deleteBook.bind(this);
+    this.deleteBook = this.deleteBook.bind(this);
 
     this.state = { savedBooks: []};
   }
@@ -24,8 +24,8 @@ export default class Saved extends Component {
       });
   }
 
-  deleteBookt(id) {
-    axios.delete("/api/books/" + id).then((res) => this.getProducts());
+  deleteBook(id) {
+    axios.delete("/api/books/" + id).then((res) => this.getSavedBooks());
     this.setState({
       savedBooks: this.state.savedBooks.filter((el) => el._id !== id),
     });
@@ -37,13 +37,18 @@ export default class Saved extends Component {
 
   bookList() {
     return this.state.savedBooks.map((currentBook) => {
+      console.log(currentBook)
       return <SavedBookCard book={currentBook} deleteBook={this.deleteBook} key={currentBook._id} />;
     });
   }
 
   render(){
     return(
-      <Container>{this.bookList()}</Container>
+      <Container>
+          <div className="row justify-content-center">
+            {this.bookList()}
+          </div>  
+      </Container>
     )
   }
 }
