@@ -5,10 +5,11 @@ import { Card , Button ,  } from 'react-bootstrap';
 class SavedBookCard extends Component {
 
   onClickDelete = () => {
-    this.props.deleteBook()
+    this.props.deleteBook(this.props.book._id)
   }
 
   render(){
+    console.log(this.props)
     return(
         <Card className="col-lg-4 m-1">
         <Card.Img variant="top" src={this.props.book.image} />
