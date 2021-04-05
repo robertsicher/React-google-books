@@ -38,7 +38,7 @@ class Books extends Component {
             authors: currentBook.author,
             description: currentBook.description,
             image: currentBook.image,
-            link: currentBook.hyperLink
+            link: currentBook.link
         })
         .then(res => console.log("Successful POST", res))
         .catch(err => console.log("Error", err));
